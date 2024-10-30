@@ -33,7 +33,20 @@ function App() {
 
   useEffect(() => {
     //async fetch pokemon data here :))
-  }, [])
+    async function getPokemonData() {
+      try {
+        const pokemonData = [];
+      for (const id of idArray) {
+        const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json());
+        pokemonData.push({ name: data.name });
+      }
+        console.log(pokemonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    getPokemonData();
+  }, [idArray])
 
   return (
     <>
