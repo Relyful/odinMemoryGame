@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-
-function Cards( pokemonArray ) {
+export default function Cards( pokemonArray ) {
   const cards = pokemonArray.map((pokemon) => {
     return (
       <div className="card" key={pokemon.name}>

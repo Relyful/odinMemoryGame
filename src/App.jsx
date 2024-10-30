@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Cards from "./components/Cards";
 import "./App.css";
 
 function App() {
   const [score, setScore] = useState(0);
   const [idArray, setIdArray] = useState([]);
   const [guessedSprite, setGuessedSprite] = useState([]);
+  const [pokemonArray, setPokemonArray] = useState([]);
   const pokeCount = 1025;
-  
+
   
   function idArrayReset() {
     for (let index = 0; index < 10; index++) {
@@ -29,11 +31,15 @@ function App() {
     idArrayReset();
   };
 
+  useEffect(() => {
+    //async fetch pokemon data here :))
+  }, [])
+
   return (
     <>
       <h1>Relyful&apos;s Memory Game</h1>
       <p className="intro">Click each sprite once and only once!</p>
-      {/* cards component here */}
+      <Cards pokemonArray={pokemonArray}/>
     </>
   );
 }
