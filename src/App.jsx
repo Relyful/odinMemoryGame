@@ -36,15 +36,19 @@ function App() {
     async function getPokemonData() {
       try {
         const pokemonData = [];
-      for (const id of idArray) {
-        const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json());
-        pokemonData.push({ name: data.name });
+        for (const id of idArray) {
+          const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch data for ID: ${id}`);
+          }
+        const data = await response.json();
+        pokemonData.push({ name: data.name, spriteUrl: data.sprites.front_default });
       }
-        console.log(pokemonData);
+      console.log(pokemonData);
       } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+        console.error(error);
+      
+    }};
     getPokemonData();
   }, [idArray])
 
