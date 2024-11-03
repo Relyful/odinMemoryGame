@@ -1,13 +1,13 @@
 import "../styles/cardsStyle.css"
 
-export default function Cards({ pokemonArray }) {
+export default function Cards({ pokemonArray: spriteArray }) {
   let cards = [];
-  if (pokemonArray.length > 1) {
-    cards = pokemonArray.map((pokemon) => {
+  if (spriteArray.length > 1) {
+    cards = spriteArray.map((sprite) => {
       return (
-        <div className="card" key={pokemon.id}>
-          <div className="spriteName">{pokemon.name}</div>
-          <img src={pokemon.pic} alt={pokemon.name} className="spritePic" />
+        <div className="card" key={sprite.id}>
+          <div className="spriteName">{sprite.name}</div>
+          <img src={sprite.pic} alt={sprite.name} className="spritePic" />
         </div>
       );
     });
