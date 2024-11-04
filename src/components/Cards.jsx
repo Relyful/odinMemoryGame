@@ -1,6 +1,6 @@
 import "../styles/cardsStyle.css"
 
-export default function Cards({ pokemonArray: spriteArray }) {
+export default function Cards({ spriteArray }) {
   let cards = [];
   if (spriteArray.length > 1) {
     cards = spriteArray.map((sprite) => {
