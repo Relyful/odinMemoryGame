@@ -7,6 +7,7 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [guessedSprite, setGuessedSprite] = useState([]);
   const [spriteArray, setSpriteArray] = useState([]);
+  const [resetCount, setResetCount] = useState(0);
   const cardAmm = 10;
 
 
@@ -33,12 +34,16 @@ function App() {
   function handleSpriteClick(e) {
     //handle clicking duplicate card
     if (guessedSprite.includes(e.target.parentElement.dataset.id)) {
-      //TODO: handle the reset on wrong choice
+      //TODO: handle the reset on wrong choice      
       if (score > bestScore) {
-        setSpriteArray([]);
-        setBestScore(score);
+        setBestScore(score);        
       }
-      console.log('STOOPID');      
+      //Clear old cards while fetching new, reset score, clearGuessArray  
+      setSpriteArray([]);
+      setScore(0);
+      setGuessedSprite([]);
+      setResetCount(resetCount + 1);
+      console.log('RESET GAME AND REFETCH');    
       return
     }
     //Handle clicking correct card
@@ -81,7 +86,7 @@ function App() {
     }
     getSpriteData();
 
-  }, [bestScore]);
+  }, [resetCount]);
 
   return (
     <>
