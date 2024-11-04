@@ -35,6 +35,7 @@ function App() {
     if (guessedSprite.includes(e.target.parentElement.dataset.id)) {
       //TODO: handle the reset on wrong choice
       if (score > bestScore) {
+        setSpriteArray([]);
         setBestScore(score);
       }
       console.log('STOOPID');      
@@ -80,10 +81,7 @@ function App() {
     }
     getSpriteData();
 
-    return (
-      setSpriteArray([])
-    )
-  }, []);
+  }, [bestScore]);
 
   return (
     <>
