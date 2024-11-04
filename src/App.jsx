@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [guessedSprite, setGuessedSprite] = useState([]);
   const [spriteArray, setSpriteArray] = useState([]);
   const cardAmm = 10;
@@ -15,6 +16,35 @@ function App() {
 
   function increaseScore(number) {
     setScore(score + number);
+  }
+
+  function shuffleArray() {
+    console.log(spriteArray);
+    let shuffled = [];
+    shuffled = spriteArray
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+
+    console.log(shuffled);
+    setSpriteArray([...shuffled]);
+  }
+
+  function handleSpriteClick(e) {
+    //handle clicking duplicate card
+    if (guessedSprite.includes(e.target.parentElement.dataset.id)) {
+      //TODO: handle the reset on wrong choice
+      if (score > bestScore) {
+        setBestScore(score);
+      }
+      console.log('STOOPID');      
+      return
+    }
+    //Handle clicking correct card
+    //Add ID of guessed sprite to list of guessed IDs
+    addToGuessedSprite(e.target.parentElement.dataset.id);
+    increaseScore(1);
+    shuffleArray();
   }
 
 
@@ -59,7 +89,11 @@ function App() {
     <>
       <h1>Relyful&apos;s Memory Game</h1>
       <p className="intro">Click each sprite once and only once!</p>
-      <Cards spriteArray={spriteArray} />
+      <div className="score">
+        <div className="currScore">Score: {score}</div>
+        <div className="bestScore">Best score: {bestScore}</div>
+      </div>
+      <Cards spriteArray={spriteArray} handleSpriteClick={handleSpriteClick} />
     </>
   );
 }
