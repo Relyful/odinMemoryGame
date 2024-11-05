@@ -90,13 +90,17 @@ function App() {
 
   return (
     <>
-      <h1>Relyful&apos;s Memory Game</h1>
-      <p className="intro">Click each sprite once and only once!</p>
-      <div className="score">
-        <div className="currScore">Score: {score}</div>
-        <div className="bestScore">Best score: {bestScore}</div>
+      <div className="container">
+        <div className="header">
+          <h1>Relyful&apos;s<br /> Memory Game</h1>
+          <p className="intro">Click each sprite once and only once!</p>
+        </div>
+        <div className="score">
+          <div className="currScore">Score: {score}</div>
+          <div className="bestScore">Best score: {bestScore}</div>
+        </div>
+        <Cards spriteArray={spriteArray} handleSpriteClick={handleSpriteClick} />
       </div>
-      <Cards spriteArray={spriteArray} handleSpriteClick={handleSpriteClick} />
     </>
   );
 }
