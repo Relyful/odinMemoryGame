@@ -15,14 +15,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 
 .header h1 {
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
+}
+
+.header .intro {
+  font-size: 2em;
 }
 
 .score {
   display: flex;
   justify-content: space-between;
+  font-size: 1.3em;
+  font-weight: bold;
 }
