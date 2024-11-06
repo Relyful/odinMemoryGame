@@ -112,9 +112,9 @@ function App() {
         <div className="introduction">
           <p>Select difficulty</p>
           <div className="buttons">
-            <button type="button" onClick={handleStartGame} data-diff={5}>Easy</button>
-            <button type="button" onClick={handleStartGame} data-diff={10}>Normal</button>
-            <button type="button" onClick={handleStartGame} data-diff={15}>Hard</button>
+            <button type="button" onClick={handleStartGame} data-diff={5} className="redBorder">Easy</button>
+            <button type="button" onClick={handleStartGame} data-diff={10} className="greenBorder">Normal</button>
+            <button type="button" onClick={handleStartGame} data-diff={15} className="blueBorder">Hard</button>
           </div>
         </div>
       </div>
