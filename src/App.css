@@ -2,7 +2,7 @@
 
 #root {
   font-family: "Roboto", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-image: url('./assets/magic_colors.png');
   background-size: contain;
@@ -73,6 +73,12 @@
   border-radius: 10px;
   font-size: 1.3em;
   background-color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+
+.buttons button:hover {
+  transform: scale(1.1);
 }
 
 .redBorder {
@@ -85,4 +91,24 @@
 
 .blueBorder {
   border: 2px solid blue;
+}
+
+.end {
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.end button {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.3em;
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+  border: none;
+}
+
+.end button:hover {
+  transform: scale(1.1);
 }

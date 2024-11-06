@@ -137,11 +137,11 @@ function App() {
     );
   } else if (gameStatus === "end") {
     return (
-      <>
+      <div className="container end">
         <h2>GAME OVER!</h2>
         <p>Your score: {score}</p>
         <button type="button" onClick={handleSetGameStart}>Reset</button>
-      </>
+      </div>
     )   
   } 
 }
