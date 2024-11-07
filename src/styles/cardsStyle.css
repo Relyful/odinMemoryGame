@@ -6,14 +6,14 @@
 }
 
 .card {
-  max-width: 210px;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .spritePic {
-  width: 200px;
+  width: 190px;
   transition: transform 0.3s ease-in;
 }
 
